@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Mastersign.Sequence</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Tobias Kiertscher</authors>
+    <owners>Tobias Kiertscher</owners>
+    <licenseUrl>https://github.com/mastersign/Mastersign.Sequence/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/mastersign/Mastersign.Sequence</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A CLR 2.0 compatible alternative for LINQ.</description>
+    <releaseNotes>First release.</releaseNotes>
+    <copyright>Copyright 2017 by Tobias Kiertscher</copyright>
+    <tags>functional linq</tags>
+  </metadata>
+</package>
