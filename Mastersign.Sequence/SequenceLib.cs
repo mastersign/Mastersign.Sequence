@@ -24,7 +24,7 @@ namespace Mastersign.Sequence
             }
         }
 
-        public static void ForEach<T>(IEnumerable<T> values, IteratedAction<T> action)
+        public static void ForEach<T>(IEnumerable<T> values, IndexedAction<T> action)
         {
             var i = 0;
             foreach (T v in values)
@@ -45,12 +45,36 @@ namespace Mastersign.Sequence
             }
         }
 
+        public static IEnumerable<T> Filter<T>(IEnumerable<T> values, IndexedPredicate<T> pred)
+        {
+            var i = 0;
+            foreach (T v in values)
+            {
+                if (pred(v, i))
+                {
+                    yield return v;
+                }
+                i++;
+            }
+        }
+
         public static IEnumerable<TResult> Map<TSource, TResult>(
             IEnumerable<TSource> values, Converter<TSource, TResult> transform)
         {
             foreach (TSource v in values)
             {
                 yield return transform(v);
+            }
+        }
+
+        public static IEnumerable<TResult> Map<TSource, TResult>(
+            IEnumerable<TSource> values, IndexedConverter<TSource, TResult> transform)
+        {
+            var i = 0;
+            foreach (TSource v in values)
+            {
+                yield return transform(v, i);
+                i++;
             }
         }
 

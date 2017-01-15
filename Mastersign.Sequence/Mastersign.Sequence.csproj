@@ -39,9 +39,11 @@
     <Compile Include="Delegates.cs" />
     <Compile Include="EnumerableSequence.cs" />
     <Compile Include="ISequence.cs" />
+    <Compile Include="LimitingEnumerable.cs" />
     <Compile Include="Sequence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SequenceLib.cs" />
+    <Compile Include="SkippingEnumerable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

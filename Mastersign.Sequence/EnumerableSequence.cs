@@ -33,9 +33,19 @@ namespace Mastersign.Sequence
             SequenceLib.ForEach(source, action);
         }
 
-        public virtual void ForEach(IteratedAction<T> action)
+        public virtual void ForEach(IndexedAction<T> action)
         {
             SequenceLib.ForEach(source, action);
+        }
+
+        public ISequence<T> Skip(int n)
+        {
+            return new EnumerableSequence<T>(new SkippingEnumerable<T>(source, n));
+        }
+
+        public ISequence<T> Take(int n)
+        {
+            return new EnumerableSequence<T>(new LimitingEnumerable<T>(source, n));
         }
 
         public ISequence<T> Filter(Predicate<T> pred)
@@ -43,7 +53,17 @@ namespace Mastersign.Sequence
             return new EnumerableSequence<T>(SequenceLib.Filter(source, pred));
         }
 
+        public ISequence<T> Filter(IndexedPredicate<T> pred)
+        {
+            return new EnumerableSequence<T>(SequenceLib.Filter(source, pred));
+        }
+
         public ISequence<TResult> Map<TResult>(Converter<T, TResult> transform)
+        {
+            return new EnumerableSequence<TResult>(SequenceLib.Map(source, transform));
+        }
+
+        public ISequence<TResult> Map<TResult>(IndexedConverter<T, TResult> transform)
         {
             return new EnumerableSequence<TResult>(SequenceLib.Map(source, transform));
         }
