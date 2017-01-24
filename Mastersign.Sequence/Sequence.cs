@@ -14,5 +14,20 @@ namespace Mastersign.Sequence
         {
             return new EnumerableSequence<T>(values);
         }
+
+        private static IEnumerable<object> TypedEnumerable(System.Collections.IEnumerable values)
+        {
+            foreach (var value in values) yield return value;
+        }
+
+        public static ISequence<object> Seq(System.Collections.IEnumerable values)
+        {
+            return new EnumerableSequence<object>(TypedEnumerable(values));
+        }
+
+        public static ISequence<T> Seq<T>(System.Collections.IEnumerable values)
+        {
+            return new EnumerableSequence<object>(TypedEnumerable(values)).Cast<T>();
+        }
     }
 }
