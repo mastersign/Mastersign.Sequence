@@ -88,6 +88,21 @@ namespace Mastersign.Sequence
             return SequenceLib.FirstOrDefault(source, pred);
         }
 
+        public bool Contains(T item)
+        {
+            return SequenceLib.Contains(source, item);
+        }
+
+        public bool Contains(T item, IEqualityComparer<T> comparer)
+        {
+            return SequenceLib.Contains(source, item, comparer);
+        }
+
+        public bool Contains(T item, EqualityRelation<T> rel)
+        {
+            return SequenceLib.Contains(source, item, rel);
+        }
+
         public bool All(Predicate<T> pred)
         {
             return SequenceLib.All(source, pred);

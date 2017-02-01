@@ -127,6 +127,29 @@ namespace Mastersign.Sequence
             return default(T);
         }
 
+        public static bool Contains<T>(IEnumerable<T> values, T value)
+        {
+            return Contains(values, value, EqualityComparer<T>.Default);
+        }
+
+        public static bool Contains<T>(IEnumerable<T> values, T value, IEqualityComparer<T> comparer)
+        {
+            foreach (T v in values)
+            {
+                if (comparer.Equals(v, value)) return true;
+            }
+            return false;
+        }
+
+        public static bool Contains<T>(IEnumerable<T> values, T value, EqualityRelation<T> rel)
+        {
+            foreach (T v in values)
+            {
+                if (rel(v, value)) return true;
+            }
+            return false;
+        }
+
         public static bool All<T>(IEnumerable<T> values, Predicate<T> pred)
         {
             foreach (T v in values)

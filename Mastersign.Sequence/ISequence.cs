@@ -31,6 +31,12 @@ namespace Mastersign.Sequence
 
         T FirstOrDefault(Predicate<T> pred);
 
+        bool Contains(T item);
+
+        bool Contains(T item, IEqualityComparer<T> comparer);
+
+        bool Contains(T item, EqualityRelation<T> rel);
+
         bool All(Predicate<T> pred);
 
         bool Any(Predicate<T> pred);

@@ -8,6 +8,8 @@ namespace Mastersign.Sequence
 
     public delegate TResult IndexedConverter<TSource, TResult>(TSource v, int i);
 
+    public delegate bool EqualityRelation<T>(T a, T b);
+
     public delegate T Combinator<T>(T a, T b);
 
     public delegate void IndexedAction<T>(T value, int i);
